@@ -1,0 +1,26 @@
+git add . 
+git commit -m "Message"
+git push origin <branch name>
+e.g. git push origin master
+
+***********************
+BRANCH and General operations
+***********************
+
+git checkout <Branch Name> // switching to another branch
+e.g. git checkout feature/sltracer
+git checkout -b <Branch Name> // Creating new branch and switching
+git branch -D <Branch Name> // Deleting the branch in local
+git push <remote_name> --delete <branch_name> (to delete remote branch)	
+git branch  // gives the name of branches
+git reset --hard HEAD // will delete the modifications made and will move the head to prvious commit
+git merge Branch_name_you_want_to_merge (e.g. suppose you are in feature/ECT-136018 -> git merge master , this will merge branch master into feature/ECT-136018)
+git status // show the files modified and whether they are in staged area or unstaged area
+git log // tells where HEAD is pointing
+git add .//add all files in unstaged area to staged area only after doing this we can commit the file.
+git commit// commit(add) the file to the local repository
+git push// push(add) the file to the remote repository
+git pull// pulls the files from remote repository
+git rm --cached file_name// To remove files from Staging area(Unstage)
+git diff --cached file_name// To see changes staged for commit,
+git diff //This shows what has been changed, but is not staged for a commit.
