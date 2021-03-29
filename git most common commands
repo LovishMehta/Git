@@ -77,9 +77,8 @@ git rebase:
 **************
 Merge winodw
 **************
-
 press "i" (i for insert)
 write your merge message
 press "esc" (escape)
-write ":wq" (write & quit)
+write ":wq!" (write & quit)
 then press enter
