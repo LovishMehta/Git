@@ -1,3 +1,7 @@
+Git is a version control system
+Github is a website to host code or you can say it  is a code hosting platform for collaboration and version control.
+GitHub lets you (and others) work together on projects
+
 git add . 
 git commit -m "Message"
 git push origin <branch name>
@@ -10,17 +14,72 @@ BRANCH and General operations
 git checkout <Branch Name> // switching to another branch
 e.g. git checkout feature/sltracer
 git checkout -b <Branch Name> // Creating new branch and switching
+git checkout -- .// will undo the changes in all files
+git checkout -- fileName// will undo the changes in the particular file.
+git reert <commit id> // will undo the changes to the particular commit id
+git reset --hard HEAD // will delete the modifications made and will move the head to previous commit
+git reset --hard <commit id> //Will delete the modification and will move the head to that commit id
+git reset HEAD * // to unsatge a staged file
+git reset HEAD file_name// to unstage a particular file
 git branch -D <Branch Name> // Deleting the branch in local
 git push <remote_name> --delete <branch_name> (to delete remote branch)	
 git branch  // gives the name of branches
-git reset --hard HEAD // will delete the modifications made and will move the head to prvious commit
+git clean -n// to see which files will be deleted you can use the -n option before you run the actual command
+git clean -f// to delete untracked files
 git merge Branch_name_you_want_to_merge (e.g. suppose you are in feature/ECT-136018 -> git merge master , this will merge branch master into feature/ECT-136018)
 git status // show the files modified and whether they are in staged area or unstaged area
 git log // tells where HEAD is pointing
 git add .//add all files in unstaged area to staged area only after doing this we can commit the file.
 git commit// commit(add) the file to the local repository
 git push// push(add) the file to the remote repository
+git push -u origin master // -u creates that branch with the same name of your local on the remote repo, then pushes changes into that branch.
 git pull// pulls the files from remote repository
 git rm --cached file_name// To remove files from Staging area(Unstage)
 git diff --cached file_name// To see changes staged for commit,
 git diff //This shows what has been changed, but is not staged for a commit.
+git difftool HEAD~1 HEAD //To see difference between last commit and second last commit
+
+********
+  HEAD
+********
+HEAD: The HEAD points out to the most recent(last) commit in the current branch.
+When you see the message "You are in detached HEAD state" it means your HEAD is not pointing to the most recent commit.
+
+************************
+Different Reset Modes
+************************
+By default when we write git reset HEAD it is mixed mode i.e we can interpret it as git reset --mixed HEAD
+git reset --soft HEAD//  It takes up all the changes done for this commit and keep staging area
+git reset --mixed HEAD// It takes up all the changes done for this commit and keep it working area.
+git reset --hard HEAD// It deletes all the changes done for this commit and keeps it nowhere. You will not be able to get back all those changes
+
+******************************************************
+Difference between git reset, git revert, git checkout.
+******************************************************
+git revert: A revert is an operation that takes a specified commit and creates a new commit which inverses the specified commit.
+git reset: A reset is an operation that takes a specified commit and resets the "three trees" to match the state of the repository at that specified commit. 
+git checkout: A checkout is an operation that moves the HEAD ref pointer to a specified commit.
+https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting#:~:text=For%20this%20reason%2C%20git%20revert,is%20for%20undoing%20uncommitted%20changes.
+
+*********************************************
+Difference between git merge and git rebase
+*********************************************
+git merge:
+- Is a non-destructive operation
+- Existing branches are not changed in any way.
+- Creates a new merge commit in the branch in which you made the merge.
+
+git rebase:
+- Moves the entire feature branch to begin on the tip of the master branch
+- Re-writes the project history
+- We get much cleaner and linear project history
+
+**************
+Merge winodw
+**************
+
+press "i" (i for insert)
+write your merge message
+press "esc" (escape)
+write ":wq" (write & quit)
+then press enter
