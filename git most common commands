@@ -73,6 +73,8 @@ git rebase:
 - Moves the entire feature branch to begin on the tip of the master branch
 - Re-writes the project history
 - We get much cleaner and linear project history
+refer below link
+https://www.youtube.com/watch?v=KWAZl2QHC44&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=9
 
 **************
 Merge winodw
