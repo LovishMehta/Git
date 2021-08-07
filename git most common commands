@@ -16,14 +16,18 @@ e.g. git checkout feature/sltracer
 git checkout -b <Branch Name> // Creating new branch and switching
 git checkout -- .// will undo the changes in all files
 git checkout -- fileName// will undo the changes in the particular file.
-git reert <commit id> // will undo the changes to the particular commit id
+git revert <commit id> // will undo the changes to the particular commit id
 git reset --hard HEAD // will delete the modifications made and will move the head to previous commit
 git reset --hard <commit id> //Will delete the modification and will move the head to that commit id
 git reset HEAD * // to unsatge a staged file
 git reset HEAD file_name// to unstage a particular file
 git branch -D <Branch Name> // Deleting the branch in local
 git push <remote_name> --delete <branch_name> (to delete remote branch)	
-git branch  // gives the name of branches
+git branch  // gives the name of local branches
+git branch -r // gives name of remote branches
+git fetch origin // fetches all remote branches
+git branch -a // shows the list of all the branches available for checkout
+git checkout -b remote_branchName_you_want_to_track origin/remote_branchName_you_want_to_track // Will set up the local branch to track remote branch
 git clean -n// to see which files will be deleted you can use the -n option before you run the actual command
 git clean -f// to delete untracked files
 git merge Branch_name_you_want_to_merge (e.g. suppose you are in feature/ECT-136018 -> git merge master , this will merge branch master into feature/ECT-136018)
@@ -32,12 +36,19 @@ git log // tells where HEAD is pointing
 git add .//add all files in unstaged area to staged area only after doing this we can commit the file.
 git commit// commit(add) the file to the local repository
 git push// push(add) the file to the remote repository
-git push -u origin master // -u creates that branch with the same name of your local on the remote repo, then pushes changes into that branch.
+git push -u origin <branch_name> // -u creates that branch with the same name of your local on the remote repo, then pushes changes into that branch.
 git pull// pulls the files from remote repository
 git rm --cached file_name// To remove files from Staging area(Unstage)
 git diff --cached file_name// To see changes staged for commit,
 git diff //This shows what has been changed, but is not staged for a commit.
 git difftool HEAD~1 HEAD //To see difference between last commit and second last commit
+
+********************************************************
+Track already exisiting Remote Branch in new workspace
+********************************************************
+just do :
+git checkout Remote_Branch_Name
+After successful completion you will get a message: "Branch 'feature/ECT-136018' set up to track remote branch 'feature/ECT-136018' from 'origin'."
 
 ********
   HEAD
@@ -76,11 +87,16 @@ git rebase:
 refer below link
 https://www.youtube.com/watch?v=KWAZl2QHC44&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=9
 
-**************
+*************
 Merge winodw
-**************
+*************
 press "i" (i for insert)
 write your merge message
 press "esc" (escape)
 write ":wq!" (write & quit)
 then press enter
+
+*********************
+clear GitBash screen
+*********************
+shortcut: ctrl + l
